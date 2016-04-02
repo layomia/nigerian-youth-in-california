@@ -40,7 +40,7 @@ $(function() {
 
   document.getElementById("short-bio").value = "";
 
-	/*
+  /*
 	number of fieldsets
 	*/
 	var fieldsetCount = $('#formElem').children().length;
@@ -181,11 +181,7 @@ $(function() {
 				hasError = true;
 				$this.css('background-color','#FFEDEF');
 			}
-			/*else
-				$this.css('background-color','#FFFFFF');*/
-
 			count++;
-			console.log("just incremented count");
 		});
 
 		var $link = $('#navigation li:nth-child(' + parseInt(step) + ') a');
@@ -204,12 +200,27 @@ $(function() {
 	/*
 	if there are errors don't allow the user to submit
 	*/
-	$('#registerButton').bind('click',function(){
-		if($('#formElem').data('errors')){
+  $('#registerButton').bind('click',function(event){
+
+    event.preventDefault();
+
+    if($('#formElem').data('errors')){
 			//alert('Please correct the errors in the Form');
 			$("#form-error").fadeIn();
 			return false;
 		} else {
+      $.ajax({
+        url : "./php/signup.php" || window.location.pathname,
+        type: "POST",
+        data: $(this).serialize(),
+        success: function (data) {
+          console.log("we were successful");
+          console.log(data);
+        },
+        error: function (jXHR, textStatus, errorThrown) {
+          console.log("we failed");
+        }
+      });
 			/*will throw non-fatal uncaught exception if page
 			is not oppened from homepage as fancybox*/
 			parent.$.fancybox.close();

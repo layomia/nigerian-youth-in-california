@@ -1,15 +1,5 @@
 $(document).ready(function() {
 
-  /*var date = new Date();
-  var dateStr = (date.getMonth() + 1) + "/" + (date.getDate()) + "/" + date.getFullYear();
-  document.getElementById("date-of-birth").max = dateStr;
-  console.log(dateStr);
-  console.log(document.getElementById("date-of-birth").max);*/
-
-  $(function() {
-    $("#datepicker").datepicker({ maxDate: new Date, minDate: new Date(2007, 6, 12) });
-  });
-
   $.getJSON("../assets/jsondata/schools.json", function(data){
     var vals = [];
     vals = data.california.split(",");

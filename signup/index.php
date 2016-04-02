@@ -1,3 +1,5 @@
+<? //include("./php/test-picture.php"); ?>
+
 <!DOCTYPE html>
 <html >
   <head>
@@ -30,7 +32,8 @@
 
         <div id="wrapper">
         	<div id="steps">
-        		<form id="formElem" name="formElem" action="./php/signup.php" method="post" enctype="multipart/form-data">
+            <!--action="./php/signup.php"-->
+        		<form id="formElem" name="formElem" method="post" enctype="multipart/form-data">
         			<fieldset class="step">
                 <div class="container">
                   <div class="image-uploader" data-base-height="180" data-base-width="180">
@@ -45,6 +48,9 @@
                       <div class="close"></div>
                     </div>
                   </div>
+
+                  <!--<div id="upload-status"><?php //print_r($_FILES);?></div>-->
+
                 </div>
                 <p>
         					<label for="first-name">First Name *</label>

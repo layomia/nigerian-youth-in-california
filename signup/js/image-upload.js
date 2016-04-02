@@ -93,13 +93,16 @@ jQuery.event.props.push('dataTransfer');
 
       UserImage.hideDroppableArea(elt);
 
-      // Multiple files can be dropped. Lets only deal with the "first" one.
+      //Deal with "first" file and ignore others
       var file = files[0];
 
-      if (file.type.match('image.*')) {
+      console.log(file);
+      console.log(file.name);
+
+      if (file.type.match('image.*') && file.size <= 500000) {
         UserImage.handleImage(elt, file);
       } else {
-        alert("This file is not an image.");
+        alert("This file is not an image or it is too large.");
       }
 
     },
@@ -320,5 +323,5 @@ var Resample = (function (canvas) {
  return Resample;
 
 }(
- this.document.createElement("canvas"))
+  this.document.createElement("canvas"))
 );
