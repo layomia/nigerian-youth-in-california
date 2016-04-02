@@ -1,4 +1,3 @@
-
 // Required for drag and drop file access
 jQuery.event.props.push('dataTransfer');
 
@@ -95,9 +94,6 @@ jQuery.event.props.push('dataTransfer');
 
       //Deal with "first" file and ignore others
       var file = files[0];
-
-      console.log(file);
-      console.log(file.name);
 
       if (file.type.match('image.*') && file.size <= 500000) {
         UserImage.handleImage(elt, file);

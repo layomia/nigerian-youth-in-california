@@ -1,5 +1,3 @@
-<? //include("./php/test-picture.php"); ?>
-
 <!DOCTYPE html>
 <html >
   <head>
@@ -32,7 +30,6 @@
 
         <div id="wrapper">
         	<div id="steps">
-            <!--action="./php/signup.php"-->
         		<form id="formElem" name="formElem" method="post" enctype="multipart/form-data">
         			<fieldset class="step">
                 <div class="container">
@@ -48,8 +45,6 @@
                       <div class="close"></div>
                     </div>
                   </div>
-
-                  <!--<div id="upload-status"><?php //print_r($_FILES);?></div>-->
 
                 </div>
                 <p>
@@ -188,7 +183,6 @@
 
       <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
       <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-
       <script type="text/javascript" src="./js/image-upload.js"></script>
 
   </body>
