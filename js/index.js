@@ -18,10 +18,13 @@ $(document).ready(function(){
     var scrollTop = parseInt($(this).scrollTop());
     var windowHeight_1 = (windowHeight * 1) - (windowHeight/2);
     var windowHeight_2 = (windowHeight * 2) - (windowHeight/2);
+    var windowHeight_3 = (windowHeight * 3) - (windowHeight/2);
 
     if(0 < scrollTop &&  scrollTop < windowHeight_1) {
       div = '#intro';
     } else if(windowHeight_1 < scrollTop && scrollTop < windowHeight_2) {
+      div = '#directory';
+    } else if(windowHeight_2 < scrollTop && scrollTop < windowHeight_3) {
       div = '#about';
     }
     if(i%2 == 0) {

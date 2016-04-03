@@ -90,10 +90,14 @@ jQuery.event.props.push('dataTransfer');
 
     handleDrop: function(elt, files) {
 
+      console.log("Called");
+
       UserImage.hideDroppableArea(elt);
 
       //Deal with "first" file and ignore others
       var file = files[0];
+
+      console.log(file);
 
       if (file.type.match('image.*') && file.size <= 500000) {
         UserImage.handleImage(elt, file);

@@ -162,8 +162,43 @@ $(function() {
 			if (count == 0) {
 				valueLength = '1';
 			} else if (fieldCount == 6){
-          if (count == 3)
+          if (count == 3) {
   				  valueLength = validateEmail(thisValue) ? '1' : '';
+
+            if (valueLength == '1') {
+              //check-email.php
+
+              /*$.ajax({
+                type: 'post',
+                url: "./php/signup.php",
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                  if (data == "") {
+                    console.log("Everything is nice");
+                    //display thank you gif
+                    $('#signup-form').hide(); //something more fancy obvs
+                    document.getElementById('infographics').style.width = "100vw";
+                    //rearrange screen to show infographics
+                    /*will throw non-fatal uncaught exception if page
+              			is not oppened from homepage as fancybox*/
+                    /*parent.$.fancybox.close();*/
+                  /*} else {
+                    //To Do: Go into more detail about problem. Highlight error spots.
+                    alert("Unable to sign you up. Please try again.");
+                  }
+                },
+                error: function (jXHR, textStatus, errorThrown) {
+                  alert("Unable to sign you up. Please try again.");
+                }
+              });*/
+
+            }
+
+          }
           else if (count == 4) {
             if (validateDate(thisValue))
               valueLength = '1';
@@ -222,14 +257,19 @@ $(function() {
       contentType: false,
       processData: false,
       success: function (data) {
-        console.log(data);
-        //display thank you gif
-
-        //rearrange screen to show infographics
-
-        /*will throw non-fatal uncaught exception if page
-  			is not oppened from homepage as fancybox*/
-        /*parent.$.fancybox.close();*/
+        if (data == "") {
+          console.log("Everything is nice");
+          //display thank you gif
+          $('#signup-form').hide(); //something more fancy obvs
+          document.getElementById('infographics').style.width = "100vw";
+          //rearrange screen to show infographics
+          /*will throw non-fatal uncaught exception if page
+    			is not oppened from homepage as fancybox*/
+          /*parent.$.fancybox.close();*/
+        } else {
+          //To Do: Go into more detail about problem. Highlight error spots.
+          alert("Unable to sign you up. Please try again.");
+        }
       },
       error: function (jXHR, textStatus, errorThrown) {
         alert("Unable to sign you up. Please try again.");

@@ -1,10 +1,15 @@
+/*.fancybox-custom .fancybox-skin {
+	box-shadow: 0 0 50px #222;
+}*/
+
 #intro {
 	margin: 0;
 	padding: 0;
 	min-width: 100vw;
 	min-height: 100vh;
-	background-image: url("../Images/Overlay.png");
-	background-size: cover;
+	/*background-image: url("../assets/Images/Overlay.png");
+	background-size: cover;*/
+	background-color: #056A70;
 }
 
 #navBar {
@@ -38,6 +43,51 @@
 		color: white;
 		font-size: 45pt;
 	}
+
+	/*Directory*/
+	#directory {
+		margin: 0;
+		padding: 0;
+		width: 100vw;
+		min-height: 100vh;
+		background-color: #EBEBEB;
+		color: #000000;
+		/*display: none;*/
+	}
+
+	#directory #navBar {
+		padding-top: 15px;
+		text-align: left;
+	}
+		#directory #navBar ul {
+			margin: 15px 0 0 0;
+			padding: 0;
+		}
+		#directory #navBar ul li {
+			width: 100px;
+			display: inline;
+			font-size: 15pt;
+			margin: 0 40px;
+			padding: 15px 10px;
+			border-bottom: solid #000000 1px;
+		}
+		#directory #navBar a {
+			color: #000000;
+		  text-decoration: none;
+		}
+
+		#directory #splash {
+			margin-top: 15px;
+		}
+			#directory #splash h1 {
+				font-size: 40pt;
+				color: #000000;
+			}
+
+		#text-container {
+			margin: 0 auto;
+			text-align: center;
+		}
 
 /*About*/
 #about {

@@ -93,5 +93,5 @@
       //print_r($_SESSION);
     }
   }
-  echo $error . " " .$imageError;
+  echo $error . $imageError;
 ?>

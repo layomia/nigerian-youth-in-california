@@ -105,7 +105,8 @@
                     <option value="second">Second</option>
                     <option value="third">Third</option>
                     <option value="fourth">Fourth</option>
-                    <option value="fifth">Fifth or higher</option>
+                    <option value="fifth or higher">Fifth or higher</option>
+                    <option value="postgraduate">Postgraduate</option>
                   </select>
                 </p>
                 <p>
