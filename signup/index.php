@@ -68,7 +68,7 @@
                   <select name="gender" id="gender" style="border: none;">
                     <option value="" disabled selected>Male/Female</option>
                     <option value="Male">Male</option>
-                    <option value="fourth">Female</option>
+                    <option value="Female">Female</option>
                   </select>
                 </p>
         			</fieldset>

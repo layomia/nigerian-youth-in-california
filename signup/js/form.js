@@ -222,7 +222,6 @@ $(function() {
       contentType: false,
       processData: false,
       success: function (data) {
-        console.log("we were successful");
         console.log(data);
         //display thank you gif
 
@@ -230,7 +229,7 @@ $(function() {
 
         /*will throw non-fatal uncaught exception if page
   			is not oppened from homepage as fancybox*/
-        parent.$.fancybox.close();
+        /*parent.$.fancybox.close();*/
       },
       error: function (jXHR, textStatus, errorThrown) {
         alert("Unable to sign you up. Please try again.");
