@@ -1,0 +1,137 @@
+#school-profiles p {
+  color: #000000;
+}
+
+/*-=-=-=-=-=-=-=-=-=-*/
+/* Column Grids */
+/*-=-=-=-=-=-=-=-=-= */
+
+#school-profiles .col_half {
+  width: 49%;
+}
+#school-profiles .col_third {
+  width: 32%;
+}
+#school-profiles .col_fourth {
+  width: 23.5%;
+}
+#school-profiles .col_fifth {
+  width: 18.4%;
+}
+#school-profiles .col_sixth {
+  width: 15%;
+}
+#school-profiles .col_three_fourth {
+  width: 74.5%;
+}
+#school-profiles .col_twothird{
+  width: 66%;
+}
+#school-profiles .col_half,
+#school-profiles .col_third,
+#school-profiles .col_twothird,
+#school-profiles .col_fourth,
+#school-profiles .col_three_fourth,
+#school-profiles .col_fifth{
+	position: relative;
+	display:inline;
+	display: inline-block;
+	float: left;
+	margin-right: 2%;
+	margin-bottom: 20px;
+}
+#school-profiles .end {
+  margin-right: 0 !important;
+}
+
+/*-=-=-=-=-=-=-=-=-=-=- */
+/* Flip pane */
+/*-=-=-=-=-=-=-=-=-=-=- */
+
+#school-profiles .wrapper{
+  width: 980px;
+  margin: 0 auto;
+  background-color: #bdd3de;
+  hoverflow: hidden;
+}
+
+#school-profiles .pane {
+	margin: 0 auto;
+	height: 190px;
+  width: 290px;
+	position: relative;
+	-webkit-perspective: 600px;
+	-moz-perspective: 600px;
+}
+
+#school-profiles .pane .front,
+#school-profiles .pane .back {
+	text-align: center;
+}
+
+#school-profiles .pane .front {
+	height: inherit;
+	position: absolute;
+	top: 0;
+	z-index: 900;
+	text-align: center;
+	-webkit-transform: rotateX(0deg) rotateY(0deg);
+	   -moz-transform: rotateX(0deg) rotateY(0deg);
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	-webkit-transition: all .4s ease-in-out;
+	   -moz-transition: all .4s ease-in-out;
+		-ms-transition: all .4s ease-in-out;
+		 -o-transition: all .4s ease-in-out;
+			transition: all .4s ease-in-out;
+}
+
+#school-profiles .pane .back {
+	height: inherit;
+	position: absolute;
+	top: 0;
+	z-index: 1000;
+	-webkit-transform: rotateY(-180deg);
+	   -moz-transform: rotateY(-180deg);
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	-webkit-transition: all .4s ease-in-out;
+	   -moz-transition: all .4s ease-in-out;
+		-ms-transition: all .4s ease-in-out;
+		 -o-transition: all .4s ease-in-out;
+			transition: all .4s ease-in-out;
+}
+#school-profiles .pane.flip .front {
+	z-index: 900;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+}
+#school-profiles .pane.flip .back {
+	z-index: 1000;
+	-webkit-transform: rotateX(0deg) rotateY(0deg);
+	-moz-transform: rotateX(0deg) rotateY(0deg);
+}
+#school-profiles .box1{
+	background-color: #14bcc8;
+	width: 250px;
+	height: 150px;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+#school-profiles .box2{
+	background-color: #ff7e70;
+	width: 250px;
+	height: 150px;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}

@@ -2,7 +2,7 @@
 
   session_start();
 
-  //hidden for security
+  //hidden
   $link = mysqli_connect(, , ,);
 
   $imageError = "";

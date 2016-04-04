@@ -11,7 +11,6 @@ function goToByScroll(id){
 $(document).ready(function(){
 
   $(window).bind('scrollstop', function(){
-    console.log("wassap?");
     var windowHeight = $(window).height();
     i++;
     var div = '';

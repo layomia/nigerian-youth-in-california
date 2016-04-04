@@ -3,9 +3,15 @@
   <head>
 
     <title>Nigerian Youth in California</title>
+
+    <!--For directory-->
+    <link rel="stylesheet" href="./directory/css/directory.css">
+    <link rel="stylesheet" href="./directory/css/profiles.css">
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./general.css">
     <link rel="stylesheet" href="./Fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+
 
     <meta charset="utf-8" />
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -51,6 +57,80 @@
           <h1>Directory</h1>
         </div>
       </div>
+
+      <nav data-activepanel="0" style="margin-bottom:30px;">
+        <span data-panel="0">Schools</span>
+        <span data-panel="1">Majors</span>
+        <span data-panel="2">Tribes</span>
+      </nav>
+
+
+      <div class="contain">
+
+        <section id="carousel" class="animate">
+
+          <div class="panel" data-panel="0" id="school-profiles">
+
+            <div class="wrapper">
+              <div class="col_third">
+                <div class="hover pane">
+                  <div class="front">
+                    <div class="box1">
+                      <p>Stanford</p>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="box2">
+                      <p>Info</p>
+                    </div>
+                  </div>
+                </div>
+        		  </div>
+
+        		  <div class="col_third">
+                <div class="hover pane">
+                  <div class="front">
+                    <div class="box1">
+                      <p>Berkeley</p>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="box2">
+                      <p>Info</p>
+                    </div>
+                  </div>
+                </div>
+        		  </div>
+
+        		  <div class="col_third end">
+                <div class="hover pane">
+                  <div class="front">
+                    <div class="box1">
+                      <p>Irvine</p>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="box2">
+                      <p>Info</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        	  </div>
+
+          </div>
+          <div class="panel" data-panel="1">Majors</div>
+          <div class="panel" data-panel="2">Tribes</div>
+
+        </section>
+
+      </div>
+
+      <script src='http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js'></script>
+      <script src="./directory/js/profiles.js"></script>
+      <script src="./directory/js/directory.js"></script>
+
 
     </div>
 
