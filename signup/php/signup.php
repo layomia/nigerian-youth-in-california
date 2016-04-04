@@ -2,8 +2,7 @@
 
   session_start();
 
-  //hidden
-  $link = mysqli_connect(, , ,);
+  include("connection.php");
 
   $imageError = "";
   $share = $_POST["share-permission"] ? true : false;

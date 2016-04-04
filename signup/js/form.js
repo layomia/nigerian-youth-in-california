@@ -166,35 +166,27 @@ $(function() {
   				  valueLength = validateEmail(thisValue) ? '1' : '';
 
             if (valueLength == '1') {
-              //check-email.php
-
-              /*$.ajax({
+              //check that email has not already been registered
+              $.ajax({
                 type: 'post',
-                url: "./php/signup.php",
-                data: formData,
-                async: false,
-                cache: false,
-                contentType: false,
-                processData: false,
+                url: "./php/check-email.php",
+                data: {email: thisValue},
                 success: function (data) {
-                  if (data == "") {
-                    console.log("Everything is nice");
-                    //display thank you gif
-                    $('#signup-form').hide(); //something more fancy obvs
-                    document.getElementById('infographics').style.width = "100vw";
-                    //rearrange screen to show infographics
-                    /*will throw non-fatal uncaught exception if page
-              			is not oppened from homepage as fancybox*/
-                    /*parent.$.fancybox.close();*/
-                  /*} else {
-                    //To Do: Go into more detail about problem. Highlight error spots.
-                    alert("Unable to sign you up. Please try again.");
+                  console.log(data)
+                  if (data != "good") {
+                    valueLength = '';
+                    //might have to manually change background-color
+                    document.getElementById("email").value = "";
+                    document.getElementById("email").placeholder = "Email already registered";
                   }
                 },
                 error: function (jXHR, textStatus, errorThrown) {
-                  alert("Unable to sign you up. Please try again.");
+                  valueLength = '';
+                  //might have to manually change background-color
+                  document.getElementById("email").value = "";
+                  document.getElementById("email").placeholder = "Unable to verify email: try again please";
                 }
-              });*/
+              });
 
             }
 
