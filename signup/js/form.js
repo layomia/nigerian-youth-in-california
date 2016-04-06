@@ -36,6 +36,22 @@ function textCounter( field, countfield, maxlimit ) {
     countfield.value = remaining + left;
   }
 }
+
+function updateUsers(formData) {
+  var o = {};
+  $.each(formData, function() {
+      if (o[this.name] !== undefined) {
+          if (!o[this.name].push) {
+              o[this.name] = [o[this.name]];
+          }
+          o[this.name].push(this.value || '');
+      } else {
+          o[this.name] = this.value || '';
+      }
+  });
+  console.log(o);
+}
+
 $(function() {
 
   document.getElementById("short-bio").value = "";
@@ -172,7 +188,6 @@ $(function() {
                 url: "./php/check-email.php",
                 data: {email: thisValue},
                 success: function (data) {
-                  console.log(data)
                   if (data != "good") {
                     valueLength = '';
                     //might have to manually change background-color
@@ -239,6 +254,7 @@ $(function() {
     e.preventDefault();
 
     var formData = new FormData($(this)[0]);
+    //var data = $(this).serializeArray();
 
     $.ajax({
       type: 'post',
@@ -250,14 +266,15 @@ $(function() {
       processData: false,
       success: function (data) {
         if (data == "") {
-          console.log("Everything is nice");
-          //display thank you gif
-          $('#signup-form').hide(); //something more fancy obvs
-          document.getElementById('infographics').style.width = "100vw";
+          //updateUserJSON
+          updateUsers(data);
+          //update infographics: call function from infographics.js
+
+          //display thank you message
+
           //rearrange screen to show infographics
-          /*will throw non-fatal uncaught exception if page
-    			is not oppened from homepage as fancybox*/
-          /*parent.$.fancybox.close();*/
+          /*$('#signup-form').hide();
+          document.getElementById('infographics').style.width = "100vw";*/
         } else {
           //To Do: Go into more detail about problem. Highlight error spots.
           alert("Unable to sign you up. Please try again.");
@@ -267,6 +284,21 @@ $(function() {
         alert("Unable to sign you up. Please try again.");
       }
     });
+
+    var o = {};
+    var a = $(this).serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+
   });
 
 });

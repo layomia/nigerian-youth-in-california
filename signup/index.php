@@ -64,9 +64,9 @@
         					<input id="date-of-birth" name="date-of-birth" type="date" placeholder="mm/dd/yyyy"/>
         				</p>
                 <p>
-        					<label for="gender">*</label>
+        					<label for="gender">Gender *</label>
                   <select name="gender" id="gender" style="border: none;">
-                    <option value="" disabled selected>Male/Female</option>
+                    <option value="" disabled selected>Select</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>

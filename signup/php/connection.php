@@ -1,4 +1,3 @@
 <?php
-  //hidden for security
-  $link = mysqli_connect(, , ,);
+  $link = mysqli_connect("localhost", "cl59-nyic", "3kfE.eKWd", "cl59-nyic");
 ?>
