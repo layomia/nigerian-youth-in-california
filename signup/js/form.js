@@ -37,19 +37,41 @@ function textCounter( field, countfield, maxlimit ) {
   }
 }
 
-function updateUsers(formData) {
+function updateUsers(picture_url) {
   var o = {};
-  $.each(formData, function() {
+  var a = $('form').serializeArray();
+  $.each(a, function() {
       if (o[this.name] !== undefined) {
           if (!o[this.name].push) {
-              o[this.name] = [o[this.name]];
+              o[this.name] = '"' + [o[this.name]]  + '"';
           }
           o[this.name].push(this.value || '');
       } else {
           o[this.name] = this.value || '';
       }
   });
-  console.log(o);
+
+  o["picture-url"] = picture_url;
+
+  //store new user object
+  $.ajax({
+    type: 'post',
+    url: "./php/add-user.php",
+    data: {jsonData: JSON.stringify(o)},
+    success: function (data) {
+      if (data == "good")
+        console.log("saved");
+      else {
+        //console.log("Not saved. Connected to processing script.");
+        console.log(data);
+        //make note in some type of log.
+      }
+    },
+    error: function (jXHR, textStatus, errorThrown) {
+      console.log("Not saved. Could not connect to processing script.");
+      //make note in some type of log.
+    }
+  });
 }
 
 $(function() {
@@ -254,7 +276,6 @@ $(function() {
     e.preventDefault();
 
     var formData = new FormData($(this)[0]);
-    //var data = $(this).serializeArray();
 
     $.ajax({
       type: 'post',
@@ -265,9 +286,10 @@ $(function() {
       contentType: false,
       processData: false,
       success: function (data) {
-        if (data == "") {
+        if (data.substring(0,4) == "good") {
           //updateUserJSON
-          updateUsers(data);
+          var start = data.indexOf(",") + 1;
+          updateUsers(data.substring(start));
           //update infographics: call function from infographics.js
 
           //display thank you message
@@ -277,27 +299,15 @@ $(function() {
           document.getElementById('infographics').style.width = "100vw";*/
         } else {
           //To Do: Go into more detail about problem. Highlight error spots.
-          alert("Unable to sign you up. Please try again.");
+          console.log("Error with submit. Got data from processing script.");
+          //location.reload();
         }
       },
       error: function (jXHR, textStatus, errorThrown) {
-        alert("Unable to sign you up. Please try again.");
+        console.log("Error with submit. Didn't get error from processing script.");
+        //location.reload();
       }
     });
-
-    var o = {};
-    var a = $(this).serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
 
   });
 

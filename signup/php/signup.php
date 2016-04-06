@@ -92,5 +92,9 @@
       //print_r($_SESSION);
     }
   }
-  echo $error . $imageError;
+
+  if ($error . $imageError == "")
+    echo "good," . $target_file;
+  else
+    echo $error . $imageError;
 ?>
