@@ -62,8 +62,7 @@ function updateUsers(picture_url) {
       if (data == "good")
         console.log("saved");
       else {
-        //console.log("Not saved. Connected to processing script.");
-        console.log(data);
+        console.log("Not saved. Connected to processing script.");
         //make note in some type of log.
       }
     },

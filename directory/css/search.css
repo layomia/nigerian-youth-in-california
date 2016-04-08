@@ -1,0 +1,12 @@
+#remote {
+  text-align: center;
+  margin: 20px 0 40px 0;
+}
+input {
+  margin: 0 auto;
+  width: 50%;
+  height: 40px;
+  background-color: #ffffff;
+  font-size: 30px;
+  border: solid #056A70 1px;
+}
