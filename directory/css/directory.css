@@ -1,65 +1,16 @@
-/* Carousel
-----------------*/
 .contain{
   padding: 0 1.5rem;
   overflow: hidden;
 }
 
-#carousel {
-  position: relative;
-  width: 99999rem;
-  left:0;
+.criteria {
+  margin-top: 9em;
+  text-align: center;
 }
 
-#carousel.animate {
-	-webkit-transition: left 1s 0s ease;
-	-moz-transition: left 1s 0s ease;
-	transition: left 1s 0s ease;
-}
-
-/* Panels
-----------------*/
-.panel {
-  float: left;
-  /*background-color: gray;
-  border: 1px solid #555;*/
-  padding: 0 5rem;
-  box-sizing: border-box;
-  opacity:0;
-  -webkit-transition: opacity 1s 0s ease;
-	-moz-transition: opacity 1s 0s ease;
-	transition: opacity 1s 0s ease;
-}
-
-nav[data-activepanel="0"] + .contain > #carousel .panel[data-panel="0"],
-nav[data-activepanel="1"] + .contain > #carousel .panel[data-panel="1"],
-nav[data-activepanel="2"] + .contain > #carousel .panel[data-panel="2"],
-nav[data-activepanel="3"] + .contain > #carousel .panel[data-panel="3"],
-nav[data-activepanel="4"] + .contain > #carousel .panel[data-panel="4"]{
-	opacity:1;
-}
-
-/* Nav
---------------*/
-nav{
-  text-align:center;
-  margin: 1rem 0;
-}
-nav > span {
-  dislay: inline-block;
-  margin: 0.25rem;
-  padding: 0.25rem;
-  /*background-color: #48B2B8;*/
-
- -webkit-transition: background 0.5s 0s ease;
-	-moz-transition: background 0.5s 0s ease;
-	transition: background 0.5s 0s ease;
-}
-
-nav[data-activepanel="0"] > span[data-panel="0"],
-nav[data-activepanel="1"] > span[data-panel="1"],
-nav[data-activepanel="2"] > span[data-panel="2"],
-nav[data-activepanel="3"] > span[data-panel="3"],
-nav[data-activepanel="4"] > span[data-panel="4"]{
-  border-bottom: 1px solid #555;
+.search-criteria {
+  margin: 0 auto;
+  width: 210px;
+  border-bottom: solid black 1.5px;
+  margin-bottom: 6em;
 }

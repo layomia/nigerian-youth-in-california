@@ -1,4 +1,9 @@
 @font-face {
+	font-family: 'gara';
+	src: url('./Fonts/Garamond.ttf');
+}
+
+@font-face {
 	font-family: 'nexa_bold';
 	src: url('./Fonts/Nexa-Bold.otf');
 }
@@ -8,23 +13,17 @@
 	src: url('./Fonts/Nexa-Light.otf');
 }
 
-@font-face {
-	font-family: 'audimat_bold';
-	src: url('./Fonts/AUdimat-Bold.otf');
-}
-
-@font-face {
-	font-family: 'line_art';
-	src: url('./Fonts/LINE_ART_by_aleph_corporation.otf');
-}
-
 html, body {
-  background-color: #056A70;
+  background-color: #729FC9;
 	margin: 0;
 	padding: 0;
 	min-height: 100%;
 	width: 100%;
-	font-family: 'nexa_light', 'audimat_bold', serif;
+	font-family: 'gara', 'nexa_light', serif;
+}
+
+select, input {
+	font-family: 'gara', 'nexa_light', serif;
 }
 
 h1, p, {
@@ -33,5 +32,5 @@ h1, p, {
 }
 
 h1 {
-	font-family: 'nexa_bold';
+	font-family: 'gara', 'nexa_bold';
 }

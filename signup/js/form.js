@@ -38,26 +38,20 @@ function textCounter( field, countfield, maxlimit ) {
 }
 
 function updateUsers(picture_url) {
-  var o = {};
-  var a = $('form').serializeArray();
-  $.each(a, function() {
-      if (o[this.name] !== undefined) {
-          if (!o[this.name].push) {
-              o[this.name] = '"' + [o[this.name]]  + '"';
-          }
-          o[this.name].push(this.value || '');
-      } else {
-          o[this.name] = this.value || '';
-      }
-  });
-
-  o["picture-url"] = picture_url;
+  var person = {
+    firstName: $('#first-name').val(),
+    lastName: $('#last-name').val(),
+    email: $('#email').val(),
+    schoolChoice: $('#school-choice').val(),
+    majorChoice: $('#major-choice').val(),
+    pictureURL: picture_url
+  };
 
   //store new user object
   $.ajax({
     type: 'post',
     url: "./php/add-user.php",
-    data: {jsonData: JSON.stringify(o)},
+    data: {jsonData: JSON.stringify(person)},
     success: function (data) {
       if (data == "good")
         console.log("saved");

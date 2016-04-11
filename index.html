@@ -31,104 +31,67 @@
 
     <div id="intro">
 
-      <div id="navBar">
-        <ul>
-          <a class="fancybox fancybox.iframe" href="./signup/"><li>Join Us</li></a>
+      <button class="js-menu menu" type="button">
+	       <span class="bar"></span>
+       </button>
+
+      <nav>
+      	<ul>
+          <a href="./signup/"><li>Join Us</li></a>
           <a href="#directory" class="directory-link"><li>Directory</li></a>
           <a href="#about" class="about-link"><li>About</li></a>
-        </ul>
-      </div>
+      	</ul>
+      </nav>
 
       <div id="splash">
-        <h1>Nigerian Youth In California</h1>
+        <h1>Nigerian<br>Youth<br>in<br>California</h1>
       </div>
 
     </div>
 
     <div id="directory">
-      <div id="navBar">
-        <ul>
-          <li><a href="#intro" class="home-link">Home</a></li>
-          <li><a href="#about" class="about-link">About</a></li>
-        </ul>
-      </div>
 
       <div id="text-container">
         <div id="splash">
-          <h1>Directory</h1>
+          <h1>+Directory</h1>
         </div>
       </div>
 
-     <div id="remote">
-       <div id="custom-templates">
-         <input class="typeahead" type="text" placeholder="Search for your bros and sistahs ">
-       </div>
-     </div>
-
-      <nav data-activepanel="0" style="margin-bottom:30px;">
-        <span data-panel="0">Schools</span>
-        <span data-panel="1">Majors</span>
-        <span data-panel="2">Tribes</span>
-      </nav>
-
-
-      <div class="contain">
-
-        <section id="carousel" class="animate">
-
-          <div class="panel" data-panel="0">
-
-            <div class="wrapper" id="school-profiles">
-              <!--
-              <div class="col_third">
-                <div class="hover pane">
-                  <div class="front">
-                    <div class="box1">
-                      <p>Front Side</p>
-                    </div>
-                  </div>
-                  <div class="back">
-                    <div class="box2">
-                      <p>Back Side</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              -->
-              <div class="col_third">
-                <div class="hover pane">
-                  <div class="front">
-                    <div class="box1">
-                      <p>Front Side</p>
-                    </div>
-                  </div>
-                  <div class="back">
-                    <div class="box2">
-                      <p>Back Side</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-
-          </div>
-          <div class="panel" data-panel="1">Majors</div>
-          <div class="panel" data-panel="2">Tribes</div>
-
-        </section>
-
+      <div id="multiple-datasets">
+        <input class="typeahead" type="text" placeholder="Search for people or schools">
       </div>
 
-      <script src='http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js'></script>
+      <div class="criteria">
+        <div class="search-criteria">
+          <a href="#"><h1>Search by name</h1></a>
+        </div>
+        <div class="search-criteria">
+          <a href="#"><h1>Search by school</h1></a>
+        </div>
+      </div>
+
+
+
+    <!--<div class="contain">
+      <div class="wrapper" id="school-profiles">
+
+
+
+      </div>
+    </div>-->
+
+
+
       <script src="./directory/js/profiles.js"></script>
       <script src="./directory/js/directory.js"></script>
 
+      <script type="text/javascript" src="./directory/js/bloodhound.js"></script>
+      <script type="text/javascript" src="./directory/js/typeahead.js"></script>
+      <script type="text/javascript" src="./directory/js/the-basics.js"></script>
 
     </div>
 
-    <div id="about">
+    <div id="about" style="display:none;">
 
       <div id="navBar">
         <ul>
@@ -144,7 +107,10 @@
 
         <div id="text-box">
             <p>
-              " With your help, we are creating a platform for the Nigerian Youth in the diaspora to build a strong network amongst ourselves and allocate our resources strategically to create a fresh understanding of our history and prepare ourselves as leaders of tomorrow  "
+              With your help, we are creating a platform for the Nigerian Youth
+              in the diaspora to build a strong network amongst ourselves and
+              allocate our resources strategically to create a fresh understanding
+              of our history and prepare ourselves as leaders of tomorrow.
             </p>
         </div>
 

@@ -6,7 +6,6 @@ function clearDiv(divToClear) {
 
 
 function constructSchoolDiv(school, maleCount, femaleCount, end){
-
   var divClass = "col_third" + ( (end) ? " end" : "" );
   var divString = '<div class="' + divClass +'">'
   divString += '<div class="hover pane"><div class="front"><div class="box1"><p>'
@@ -14,21 +13,16 @@ function constructSchoolDiv(school, maleCount, femaleCount, end){
   divString += '<div class="back"><div class="box2"><p>Male:   ';
   divString += maleCount + '</p><p>Female: ';
   divString += femaleCount + '</p></div></div></div></div>';
-
-  //console.log(divString);
-
   return divString;
 }
 
 function appendSchoolDiv(schoolDiv) {
   var schoolList = document.getElementById('school-profiles');
-  schoolList.insertAdjacentHTML('beforeend', schoolDiv);
-  //$('#school-profiles').append(schoolDiv);//.trigger('pagecreate');
+  //schoolList.insertAdjacentHTML('beforeend', schoolDiv);
 }
 
 function populateSchools() {
-
-  clearDiv('school-profiles');
+  //clearDiv('school-profiles');
 
   $.getJSON("./assets/jsondata/schools.json", function(data){
     var vals = [];

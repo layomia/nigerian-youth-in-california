@@ -1,16 +1,17 @@
 var i = 0;
+var isActive = false;
 
-/*function goToByScroll(id){
+function goToByScroll(id){
     if($(id).is(':visible')) {
         $('html,body').stop();
         $('html,body').animate({scrollTop: $(id).offset().top}, 400);
         i = 0;
     }
-}*/
+}
 
 $(document).ready(function(){
 
-  /*$(window).bind('scrollstop', function(){
+  $(window).bind('scrollstop', function(){
     var windowHeight = $(window).height();
     i++;
     var div = '';
@@ -29,14 +30,18 @@ $(document).ready(function(){
     if(i%2 == 0) {
       goToByScroll(div);
     }
-  });*/
-
-  $(".home-link").click(function(){
-      $("#about").hide();
   });
 
-  $(".about-link").click(function(){
-    $("#about").fadeIn();
+  $('.js-menu').on('click', function() {
+  	if (isActive) {
+  		$(this).removeClass('active');
+  		$('body').removeClass('menu-open');
+  	} else {
+  		$(this).addClass('active');
+  		$('body').addClass('menu-open');
+  	}
+
+  	isActive = !isActive;
   });
 
 });
