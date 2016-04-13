@@ -4,7 +4,6 @@ function clearDiv(divToClear) {
     myNode.removeChild(myNode.firstChild);
 }
 
-
 function constructSchoolDiv(school, maleCount, femaleCount, end){
   var divClass = "col_third" + ( (end) ? " end" : "" );
   var divString = '<div class="' + divClass +'">'
@@ -18,13 +17,13 @@ function constructSchoolDiv(school, maleCount, femaleCount, end){
 
 function appendSchoolDiv(schoolDiv) {
   var schoolList = document.getElementById('school-profiles');
-  //schoolList.insertAdjacentHTML('beforeend', schoolDiv);
+  schoolList.insertAdjacentHTML('beforeend', schoolDiv);
 }
 
-function populateSchools() {
-  //clearDiv('school-profiles');
+function populateSchools(suggestion="") {
+  clearDiv('school-profiles');
 
-  $.getJSON("./assets/jsondata/schools.json", function(data){
+  $.getJSON("../../assets/jsondata/schools.json", function(data){
     var vals = [];
     vals = data.california.split(",");
     var i = 1;
@@ -32,7 +31,7 @@ function populateSchools() {
     $.each(vals, function(index, value) {
       $.ajax({
         type: 'post',
-        url: "./directory/php/school-info.php",
+        url: "../php/school-info.php",
         data: {school: value},
         success: function (data) {
           if (data){
@@ -48,7 +47,6 @@ function populateSchools() {
             },function(){
               $(this).removeClass('flip');
             });
-
             i++;
           }
         },
@@ -62,20 +60,42 @@ function populateSchools() {
   });
 }
 
+function filterSchools() {
+
+}
+
 function loadInformation(index) {
-  console.log("i was called for slide " + index);
-  //typeof(index) is a number on first call. Why?
   switch (index) {
     case 0:
-      populateSchools();
-      break;
-    case "0":
       populateSchools();
       break;
     default:
       ;
   }
 }
+
+function validQuery(query) {
+  var re = /^[a-zA-Z ]+$/;
+  return re.test(query) || query == "";
+}
+
+function validKey(key) {
+  return ((key >= 65 && key <= 90) || (key == 8));
+}
+
+//let this be timed to at least 1 second
+$('#search-bar').keyup(function(e) {
+  var key = e.keyCode;
+  var query = document.getElementById("search-bar").value;
+  if (validQuery(query) && validKey(key)) {
+    //remember to ignore repeated backspaces on empty
+    if (query == "") {
+      populateSchools();
+    } else {
+      filterSchools();
+    }
+  }
+});
 
 $(document).ready(function(){
   //populate school list on load
