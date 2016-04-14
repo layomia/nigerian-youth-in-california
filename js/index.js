@@ -32,7 +32,9 @@ $(document).ready(function(){
     }
   });
 
-  $(document).on("scrollstart",function(){
+  //extend this functionality to when menu option is clicked
+  $(document).on("scrollstart", function(){
+    //abstract to function
     if (isActive) {
   		$('.js-menu').removeClass('active');
   		$('body').removeClass('menu-open');

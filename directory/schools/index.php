@@ -4,13 +4,12 @@
 
     <title>Nigerian Youth in California</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/search-style.css">
     <link rel="stylesheet" href="./css/profiles.css">
 
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../general.css">
     <link rel="stylesheet" href="../../Fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-
 
     <meta charset="utf-8" />
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
