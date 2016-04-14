@@ -37,17 +37,12 @@
       </div>
 
 
-
-
     <div class="contain">
       <div class="wrapper" id="school-profiles">
-
-
-
       </div>
     </div>
 
-      <script src="./js/profiles.js"></script>
+      <script type="text/javascript" src="./js/profiles.js"></script>
 
     </div>
 
