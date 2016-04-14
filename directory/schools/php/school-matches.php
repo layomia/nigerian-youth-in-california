@@ -14,9 +14,10 @@ if ($results) {
     $schools .= $row['school'] . ', ';
   }
 
+  //check whether we can consolidate
   $schools = rtrim($schools);
   $schools = rtrim($schools, ",");
 
-  echo $schools . ".";
+  echo $schools;
 }
 ?>

@@ -18,3 +18,10 @@
 #search-bar:focus {
   outline: none;
 }
+
+#nav {
+  background-color: #EBEBEB;
+  position: absolute;
+  text-align: center;
+  text-decoration: underline;
+}

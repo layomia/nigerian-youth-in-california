@@ -28,8 +28,6 @@ function getSchools() {
 var tempUsers = getUsers();
 var tempSchools = getSchools();
 
-console.log(tempSchools);
-
 var users = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,

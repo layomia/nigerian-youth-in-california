@@ -32,6 +32,14 @@ $(document).ready(function(){
     }
   });
 
+  $(document).on("scrollstart",function(){
+    if (isActive) {
+  		$('.js-menu').removeClass('active');
+  		$('body').removeClass('menu-open');
+      isActive = !isActive;
+  	}
+  });
+
   $('.js-menu').on('click', function() {
   	if (isActive) {
   		$(this).removeClass('active');
