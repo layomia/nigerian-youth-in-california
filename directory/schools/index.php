@@ -28,7 +28,7 @@
     <!--might replace with menu icon and functionality-->
     <div id="nav">
       <ul>
-        <a href="../..#directory">Back to directory</a>
+        <a href="../../#directory">Back to directory</a>
       </ul>
     </div>
 

@@ -47,7 +47,7 @@
       </div>
 
       <div id="search-div">
-        <input id="search-bar" type="text" placeholder="Search for people <?php echo $currentSchool;?>">
+        <input id="search-bar" type="text" placeholder="Search for people<?php echo $currentSchool;?>">
       </div>
 
 

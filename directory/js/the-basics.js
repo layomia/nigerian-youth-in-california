@@ -7,19 +7,33 @@ var jsonObject = JSON.parse(xhReq.responseText);
 function getUsers() {
   var temp = [];
 
-  for (var i = 0; i < jsonObject.length; i++)
-    temp.push(jsonObject[i].firstName + " " + jsonObject[i].lastName);
+  for (var i = 0; i < jsonObject.length; i++) {
+    //temp.push(jsonObject[i].firstName + " " + jsonObject[i].lastName);
+    temp.push({
+      name: jsonObject[i].firstName + " " + jsonObject[i].lastName,
+      link: "http://www.google.com",
+      school: jsonObject[i].schoolChoice
+    });
+  }
 
   return temp;
 };
 
 function getSchools() {
   var temp = [];
+  var tempSch = [];
 
   for (var i = 0; i < jsonObject.length; i++) {
-    var value = jsonObject[i].schoolChoice;
-    if (!(temp.indexOf(value) > -1))
+    var school = jsonObject[i].schoolChoice;
+
+    if (!(tempSch.indexOf(school) > -1)){
+      tempSch.push(school);
+      var value = {
+        school: school,
+        link: "./directory/people/index.php?school=" + school
+      };
       temp.push(value);
+    }
   }
 
   return temp;
@@ -27,15 +41,16 @@ function getSchools() {
 
 var tempUsers = getUsers();
 var tempSchools = getSchools();
+console.log(tempSchools);
 
 var users = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   local: tempUsers
 });
 
 var schools = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('school'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   local: tempSchools
 });
@@ -47,13 +62,27 @@ $('#multiple-datasets .typeahead').typeahead({
   name: 'users',
   source: users,
   templates: {
-    header: '<h3 class="league-name">People</h3>'
+    header: '<h3 class="league-name">People</h3>',
+    suggestion: function (data) {
+        return '<a href="' + data.link + '"><p><strong>' + data.name + '</strong>, ' +  data.school  + '</p></a>';
+    }
   }
 },
 {
   name: 'schools',
   source: schools,
   templates: {
-    header: '<h3 class="league-name">Schools</h3>'
+    header: '<h3 class="league-name">Schools</h3>',
+    suggestion: function (data) {
+        return '<a href="' + data.link + '"><p><strong>' + data.school + '</strong></p></a>';
+    }
+  }
+});
+
+$(document).ready(function(){
+  window.onunload=pageleave;
+
+  function pageleave() {
+    $('#multiple-datasets').val = "";
   }
 });
