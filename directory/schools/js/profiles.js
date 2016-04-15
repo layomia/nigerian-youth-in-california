@@ -13,7 +13,7 @@ function constructSchoolDiv(school, maleCount, femaleCount, end){
   var divString = '<div class="' + divClass +'">'
   divString += '<div class="hover pane"><div class="front"><div class="box1"><p>'
   divString += school + '</p></div></div>'
-  divString += '<div class="back"><a href="./page/index.php?school=' + school + '">';
+  divString += '<div class="back"><a href="../people/index.php?school=' + school + '">';
   divString += '<div class="box2"><p>Male:   ';
   divString += maleCount + '</p><p>Female: ';
   divString += femaleCount + '</p></div></a></div></div></div>';
