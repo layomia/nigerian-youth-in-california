@@ -30,7 +30,7 @@
 		overflow: hidden;
 	}
 		#directory #splash {
-			right: 0px;
+			right: -30px;
 			margin-top:4em;
 			position: absolute;
 			-webkit-transform: rotate(-90deg);

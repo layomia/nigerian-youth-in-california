@@ -1,34 +1,38 @@
 #multiple-datasets {
   text-align: center;
   margin: 0 auto;
-  padding-top: 10em;
+  padding-top: 5em;
+  background-color: #EBEBEB;
 }
 
 .tt-input, /* UPDATE: newer versions use tt-input instead of tt-query */
 .tt-hint {
-    width: 396px;
+    /*width: 396px;*/
+    width: 70vw;
+    background-color: #EBEBEB;
     height: 30px;
     padding: 8px 12px;
     font-size: 24px;
     line-height: 30px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
+    border: none;
     outline: none;
 }
 
 .tt-input { /* UPDATE: newer versions use tt-input instead of tt-query */
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    background-color: #EBEBEB;
 }
 
 .tt-hint {
     color: #999;
 }
 
-.tt-menu { /* UPDATE: newer versions use tt-menu instead of tt-dropdown-menu */
-    width: 422px;
+.tt-menu {
+    /*width: 422px;*/
+    width: 72vw;
     margin-top: 12px;
     padding: 8px 0;
-    background-color: #fff;
+    background-color: #EBEBEB;
     border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -42,18 +46,13 @@
     line-height: 24px;
 }
 
-.tt-suggestion.tt-cursor { /* UPDATE: newer versions use .tt-suggestion.tt-cursor */
+.tt-suggestion.tt-cursor, .tt-suggestion p:hover {
     color: #fff;
     background-color: #0097cf;
 }
 
 .tt-suggestion p {
-    margin: 0;
-}
-
-.tt-suggestion p:hover {
-    margin: 0;
-    background-color: #EBEBEB;
+    margin: 0 20px;
 }
 
 .contain{
