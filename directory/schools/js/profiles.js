@@ -8,15 +8,14 @@ function clearDiv(divToClear) {
 }
 
 //to-do remove maleCount and femaleCount info, add id to each div to make clickable
-function constructSchoolDiv(school, maleCount, femaleCount, end){
+function constructSchoolDiv(school, end){
   var divClass = "col_third" + ( (end) ? " end" : "" );
   var divString = '<div class="' + divClass +'">'
-  divString += '<div class="hover pane"><div class="front"><div class="box1"><p>'
-  divString += school + '</p></div></div>'
+  divString += '<div class="hover pane"><p>'
+  divString += school + '</p><div class="front"><div class="box1"></div></div>'
   divString += '<div class="back"><a href="../people/index.php?school=' + school + '">';
-  divString += '<div class="box2"><p>Male:   ';
-  divString += maleCount + '</p><p>Female: ';
-  divString += femaleCount + '</p></div></a></div></div></div>';
+  divString += '<div class="box2">';
+  divString += '</div></a></div></div></div>';
   return divString;
 }
 
@@ -41,9 +40,7 @@ function showAllSchools() {
         success: function (data) {
           if (data){
             var end = (i % 3 == 0);
-            var maleCount = parseInt(data.substring(0, data.indexOf(",")));
-            var femaleCount = parseInt(data.substring(data.indexOf(",") + 1));
-            var schoolDiv = constructSchoolDiv(value, maleCount, femaleCount, end);
+            var schoolDiv = constructSchoolDiv(value, end);
             appendSchoolDiv(schoolDiv);
 
             //causes the hover to be triggered when the element is tapped on a touch device
@@ -79,7 +76,7 @@ function filterSchools(suggestion) {
         $.each(vals, function(index, value) {
           var end = (i % 3 == 0);
 
-          var schoolDiv = constructSchoolDiv(value, 0, 0, end);
+          var schoolDiv = constructSchoolDiv(value, end);
           appendSchoolDiv(schoolDiv);
 
           //causes the hover to be triggered when the element is tapped on a touch device
@@ -99,7 +96,7 @@ function filterSchools(suggestion) {
   });
 }
 
-function populateSchools(suggestion="") {
+function populateSchools(suggestion) {
   if (suggestion == lastSuggestion)
     return;
 
@@ -129,7 +126,7 @@ function doneTyping () {
   var query = document.getElementById("search-bar").value;
   if (validQuery(query) && validKey(key)) {
     if (query == "") {
-      populateSchools();
+      populateSchools("");
     } else {
       populateSchools(query);
     }
@@ -140,7 +137,7 @@ function doneTyping () {
 
 $(document).ready(function(){
   //populate school list on load
-  populateSchools();
+  populateSchools("");
 
   //causes the hover to be triggered when the element is tapped on a touch device
   $('.hover').hover(function(){
@@ -152,7 +149,7 @@ $(document).ready(function(){
 
   //setup before functions
   var typingTimer;                //timer identifier
-  var doneTypingInterval = 1000;  //time in ms
+  var doneTypingInterval = 500;  //time in ms
 
   //on keyup, start the countdown
   $('#search-bar').keyup(function(e){

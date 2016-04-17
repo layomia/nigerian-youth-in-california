@@ -9,9 +9,11 @@ function getUsers() {
 
   for (var i = 0; i < jsonObject.length; i++) {
     //temp.push(jsonObject[i].firstName + " " + jsonObject[i].lastName);
+    var userName = jsonObject[i].firstName + " " + jsonObject[i].lastName;
     temp.push({
-      name: jsonObject[i].firstName + " " + jsonObject[i].lastName,
-      link: "http://www.google.com",
+      name: userName,
+      link: "./directory/person/index.php?person=" + userName, //this should be the id.
+      //restructure JSON to include ID. Start from add-user.php
       school: jsonObject[i].schoolChoice
     });
   }
@@ -65,7 +67,7 @@ $('#multiple-datasets .typeahead').typeahead({
   templates: {
     header: '<h3 class="league-name">People</h3>',
     suggestion: function (data) {
-        return '<p><a href="' + data.link + '"><strong>' + data.name + '</strong>, ' +  data.school  + '</a></p>';
+        return '<p><a href="' + data.link + '" class="fancybox fancybox.iframe"><strong>' + data.name + '</strong>, ' +  data.school  + '</a></p>';
     }
   }
 },

@@ -10,7 +10,8 @@ function clearDiv(divToClear) {
 
 //to-do remove maleCount and femaleCount info, add id to each div to make clickable
 function constructPersonDiv(name){
-  var divString = '<p>' + name +'</p>';
+  //make sure that you send the users ID not name to the profile pop up.
+  var divString = '<p><a href="../person/index.php?person=' +  name + '" class="fancybox fancybox.iframe">' + name +'</a></p>';
   return divString;
 }
 
@@ -86,7 +87,7 @@ $(document).ready(function(){
 
   //setup before functions
   var typingTimer;                //timer identifier
-  var doneTypingInterval = 1000;  //time in ms
+  var doneTypingInterval = 500;  //time in ms
 
   //on keyup, start the countdown
   $('#search-bar').keyup(function(e){

@@ -67,12 +67,7 @@
 
 .search-criteria {
   margin: 0 auto;
-  
-}
-
-.search-line {
-  border-top: solid black 1.5px;
-  margin: 0 auto;
-  width: 180px;
+  width: 220px;
+  border-bottom: solid black 1.5px;
   margin-bottom: 6em;
 }
