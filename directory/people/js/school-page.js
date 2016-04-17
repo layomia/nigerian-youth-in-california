@@ -83,7 +83,7 @@ $(document).ready(function(){
   school = document.getElementById('school-name').innerHTML;
 
   //populate school list on load
-  populatePeople(school);
+  //populatePeople(school);
 
   //setup before functions
   var typingTimer;                //timer identifier

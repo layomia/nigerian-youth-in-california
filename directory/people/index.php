@@ -1,6 +1,5 @@
 <?php
   $currentSchool = "";
-
   if ($_GET['school'])
     $currentSchool = " in " . $_GET['school'];
 ?>
@@ -10,6 +9,8 @@
   <head>
 
     <title>Nigerian Youth in California</title>
+
+    <link rel="stylesheet" href="./css/profile.css">
 
     <link rel="stylesheet" href="../css/search-style.css">
 
@@ -27,11 +28,11 @@
     <script type="text/javascript" src="../../Fancybox/jquery.fancybox.js?v=2.1.5"></script>
     <script type="text/javascript" src="../../js/fancyscript.js"></script>
     <script type="text/javascript" src="./js/school-page.js"></script>
+    <script type="text/javascript" src="./js/people.js"></script>
 
   </head>
 
   <body>
-    <p id="school-name" style="display: none;"><?php echo $_GET['school']; ?></p>
 
     <!--might replace with menu icon and functionality-->
     <div id="nav">
@@ -43,7 +44,7 @@
     <div id="directory">
 
       <div id="splash">
-        <h1>+People</h1>
+        <h1>+ People</h1>
       </div>
 
       <div id="search-div">
@@ -53,10 +54,37 @@
 
     <div class="contain">
       <div class="wrapper" id="people-profiles">
+
+
+        <div class='background'>
+          <div class='main'>
+            <div class='img inactive' id='img'>
+              <div class='overlay'><p>View Profile</p></div>
+            </div>
+            <div class='close' id='close'>
+              X
+            </div>
+            <div class='content' id='content'><p class='d1'>Scott Hutcheson</p><p class='d2'>Product Designer</p><p class='d3'>Glasgow, UK</p><div class='buttons' id='buttons'>
+                <a href='https://github.com/smhutch' target='_blank'>
+                  <img src='https://packagecontrol.io/readmes/img/a59a44b1a383ad42e195fa34f0ad2756f46c77a2.png'>
+                </a>
+                <a href='https://twitter.com/SMHutcheson' target='_blank'>
+                  <img src='http://www.coinfestuk.org/img/twit.png'>
+                </a>
+              </div>
+              <div class='backer' id='backer'></div>
+            </div>
+          </div>
+        </div>
+
+
+
       </div>
     </div>
 
     </div>
+
+    <p id="school-name" style="display: none;"><?php echo $_GET['school']; ?></p>
 
   </body>
 
