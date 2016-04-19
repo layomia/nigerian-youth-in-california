@@ -24,44 +24,6 @@ function appendSchoolDiv(schoolDiv) {
   schoolList.insertAdjacentHTML('beforeend', schoolDiv);
 }
 
-function showAllSchools() {
-
-  //get this list from user JSON file
-  $.getJSON("../../assets/jsondata/schools.json", function(data){
-    var vals = [];
-    vals = data.california.split(",");
-    var i = 1;
-
-    $.each(vals, function(index, value) {
-      $.ajax({
-        type: 'post',
-        url: "./php/school-info.php",
-        data: {school: value},
-        success: function (data) {
-          if (data){
-            var end = (i % 3 == 0);
-            var schoolDiv = constructSchoolDiv(value, end);
-            appendSchoolDiv(schoolDiv);
-
-            //causes the hover to be triggered when the element is tapped on a touch device
-            $('.hover').hover(function(){
-              $(this).addClass('flip');
-            },function(){
-              $(this).removeClass('flip');
-            });
-            i++;
-          }
-        },
-        error: function (jXHR, textStatus, errorThrown) {
-          console.log("No action for this school. Could not connect to processing script.");
-          //make note in some type of log.
-        }
-      });
-
-    });
-  });
-}
-
 function filterSchools(suggestion) {
   $.ajax({
     type: 'post',
@@ -71,7 +33,6 @@ function filterSchools(suggestion) {
       if (data) {
         console.log("got results");
         var vals = data.split(",");
-        console.log(vals);
         var i = 1;
         $.each(vals, function(index, value) {
           var end = (i % 3 == 0);
@@ -103,11 +64,8 @@ function populateSchools(suggestion) {
   clearDiv('school-profiles');
 
   //to-do: resolve discrepancies between JSON user data and SQL database.
-  if (suggestion == "")
-    showAllSchools();
-  else {
-    filterSchools(suggestion);
-  }
+  filterSchools(suggestion);
+
 
   lastSuggestion = suggestion;
 }

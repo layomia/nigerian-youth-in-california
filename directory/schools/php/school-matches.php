@@ -5,7 +5,7 @@ $schools = "";
 
 $suggestion = trim($_POST['query']);
 
-$query = "SELECT DISTINCT school FROM USERS WHERE school LIKE '%{$suggestion}%'";
+$query = "SELECT DISTINCT school FROM USERS WHERE school LIKE '%{$suggestion}%' ORDER BY school";
 $result = mysqli_query($link, $query);
 $results = mysqli_num_rows($result);
 

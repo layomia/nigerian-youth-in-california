@@ -8,10 +8,18 @@ function clearDiv(divToClear) {
     myNode.removeChild(myNode.firstChild);
 }
 
-//to-do remove maleCount and femaleCount info, add id to each div to make clickable
-function constructPersonDiv(name){
-  //make sure that you send the users ID not name to the profile pop up.
-  var divString = '<p><a href="../person/index.php?person=' +  name + '" class="fancybox fancybox.iframe">' + name +'</a></p>';
+function constructPersonDiv(user, index){
+  var userName = user.first_name + " " + user.last_name;
+
+  var divString = "<div class='background'><div class='main'><p style='display:none;'>" + index;
+  divString += "</p><div class='img inactive' id='img" + index + "'><div class='overlay'><p>";
+  divString += userName + "</p></div></div><div class='close' id='close" + index + "'>X</div>";
+  divString += "<div class='content' id='content" + index + "'><p class='d1'>" + userName +"</p>";
+  divString += "<p class='d2'>" + user.school + "</p><p class='d3'><a href='../person/index.php?person=";
+  divString += user.id + "' class='fancybox fancybox.iframe'>View Profile</a></p><div class='buttons' id='buttons";
+  divString += index + "'><!--social media stuff--></div>" + "<div class='backer' id='backer" + index;
+  divString += "'></div></div></div></div>";
+
   return divString;
 }
 
@@ -21,11 +29,16 @@ function appendPersonDiv(personDiv) {
 }
 
 
-function populatePeople(school="", suggestion="") {
+function populatePeople(school, suggestion) {
   if (suggestion == lastSuggestion)
     return;
 
+  console.log(school + " " + suggestion + ".");
+
   clearDiv('people-profiles');
+
+  var img, content, backer, buttons, helper, close;
+  var imgID = "img", contentID = "content", backerID = "backer", buttonsID = "buttons", helperID = "helper", closeID = "close";
 
   $.ajax({
     type: 'post',
@@ -34,13 +47,74 @@ function populatePeople(school="", suggestion="") {
     success: function (data) {
       if (data) {
         var users = JSON.parse(data);
-
+        var num = 0;
         $.each(users, function(index, value) {
-
-          var user = value.first_name + ' ' + value.last_name;
-          var personDiv = constructPersonDiv(user);
+          console.log(value);
+          var personDiv = constructPersonDiv(value, num);
           appendPersonDiv(personDiv);
 
+          //discard ugly default images?
+          var image_url = "../../signup/" + value.picture_url.substr(3);
+
+          document.getElementById(imgID + num).style.background = 'url("' + image_url + '") 55% center';
+          document.getElementById(imgID + num).style.backgroundSize = 'cover';
+          document.getElementById(imgID + num).style.backgroundRepeat = 'no-repeat';
+
+          num++;
+
+          $(".close").click(function() {
+
+            var profileID = $(this).parent().find("p").andSelf().filter("p:first").first().text();
+
+            img = document.getElementById(imgID + profileID);
+            content = document.getElementById(contentID + profileID);
+            backer = document.getElementById(backerID + profileID);
+            buttons = document.getElementById(buttonsID + profileID);
+            helper = document.getElementById(helperID + profileID);
+            close = document.getElementById(closeID + profileID);
+
+
+            img.classList.remove("active");
+            img.classList.add("inactive");
+            content.classList.remove("active");
+            backer.classList.remove("active");
+            buttons.classList.remove("active");
+            close.classList.remove("active");
+
+            var texts = this.parentElement.querySelectorAll(".content p");
+
+            [].forEach.call(texts, function(text) {
+              text.classList.remove("active");
+            });
+
+          });
+
+          $(".overlay").click(function(){
+
+            var profileID = $(this).parent().parent().find("p").andSelf().filter("p:first").first().text();
+
+            img = document.getElementById(imgID + profileID);
+            content = document.getElementById(contentID + profileID);
+            backer = document.getElementById(backerID + profileID);
+            buttons = document.getElementById(buttonsID + profileID);
+            helper = document.getElementById(helperID + profileID);
+            close = document.getElementById(closeID + profileID);
+
+            img.classList.add("active");
+            img.classList.remove("inactive");
+            content.classList.add("active");
+            backer.classList.add("active");
+            buttons.classList.add("active");
+            close.classList.add("active");
+
+            //this.parentElement.
+            var texts = this.parentElement.parentElement.querySelectorAll(".content p");
+
+            [].forEach.call(texts, function(text) {
+              text.classList.add("active");
+            });
+
+          });
 
         });
       }
@@ -65,11 +139,10 @@ function validKey(key) {
 
 //user is "finished typing," do something
 function doneTyping () {
-  console.log("done typing, school is " + school);
   var query = document.getElementById("search-bar").value;
   if (validQuery(query) && validKey(key)) {
     if (query == "") {
-      populatePeople(school);
+      populatePeople(school, "");
     } else {
       populatePeople(school, query);
     }
@@ -83,7 +156,7 @@ $(document).ready(function(){
   school = document.getElementById('school-name').innerHTML;
 
   //populate school list on load
-  //populatePeople(school);
+  populatePeople(school, "");
 
   //setup before functions
   var typingTimer;                //timer identifier

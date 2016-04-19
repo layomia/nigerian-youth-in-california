@@ -9,19 +9,19 @@
   //add everything needed by profiles in query
   if ($_POST['school'] != '') {
     if ($_POST['suggestion'] != '') {
-      $query = "SELECT id, first_name, last_name, email, school FROM USERS WHERE
+      $query = "SELECT id, first_name, last_name, picture_url, school FROM USERS WHERE
       school='".mysqli_real_escape_string($link, $_POST['school'])."'
       AND CONCAT (first_name, ' ', last_name) LIKE '%{$suggestion}%'";
     } else {
-      $query = "SELECT id, first_name, last_name, email, school FROM USERS WHERE
+      $query = "SELECT id, first_name, last_name, picture_url, school FROM USERS WHERE
       school='".mysqli_real_escape_string($link, $_POST['school'])."'";
     }
   } else {
     if ($_POST['suggestion'] != '') {
-      $query = "SELECT id, first_name, last_name, email, school FROM USERS WHERE
+      $query = "SELECT id, first_name, last_name, picture_url, school FROM USERS WHERE
       CONCAT (first_name, ' ', last_name) LIKE '%{$suggestion}%'";
     } else {
-      $query = "SELECT id, first_name, last_name, email, school FROM USERS";
+      $query = "SELECT id, first_name, last_name, picture_url, school FROM USERS";
     }
   }
 
