@@ -9,6 +9,9 @@ function clearDiv(divToClear) {
 }
 
 function constructPersonDiv(user, index){
+
+  console.log("constructing div");
+
   var userName = user.first_name + " " + user.last_name;
 
   var divString = "<div class='background'><div class='main'><p style='display:none;'>" + index;
@@ -33,7 +36,7 @@ function populatePeople(school, suggestion) {
   if (suggestion == lastSuggestion)
     return;
 
-  console.log(school + " " + suggestion + ".");
+  console.log("school is " + school + ", suggestion is " + suggestion + ".");
 
   clearDiv('people-profiles');
 
@@ -46,6 +49,7 @@ function populatePeople(school, suggestion) {
     data: {school: school, suggestion: suggestion},
     success: function (data) {
       if (data) {
+        console.log(data);
         var users = JSON.parse(data);
         var num = 0;
         $.each(users, function(index, value) {

@@ -66,7 +66,6 @@ function populateSchools(suggestion) {
   //to-do: resolve discrepancies between JSON user data and SQL database.
   filterSchools(suggestion);
 
-
   lastSuggestion = suggestion;
 }
 
@@ -89,6 +88,7 @@ function doneTyping () {
       populateSchools(query);
     }
   } else {
+    //what about this character "'"?
     console.log("rubbish mate");
   }
 }
@@ -103,7 +103,6 @@ $(document).ready(function(){
   },function(){
     $(this).removeClass('flip');
   });
-
 
   //setup before functions
   var typingTimer;                //timer identifier

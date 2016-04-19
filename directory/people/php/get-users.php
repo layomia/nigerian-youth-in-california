@@ -29,6 +29,7 @@
   $results = mysqli_num_rows($result);
 
   if ($results) {
+    //echo "got results";
     while($row = $result->fetch_assoc()) {
       $schools[$row['id']] = $row;
     }

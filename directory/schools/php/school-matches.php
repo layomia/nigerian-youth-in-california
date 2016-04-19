@@ -11,7 +11,7 @@ $results = mysqli_num_rows($result);
 
 if ($results) {
   while($row = $result->fetch_assoc()) {
-    $schools .= $row['school'] . ', ';
+    $schools .= $row['school'] . ',';
   }
 
   //check whether we can consolidate
