@@ -37,14 +37,15 @@ function textCounter( field, countfield, maxlimit ) {
   }
 }
 
-function updateUsers(picture_url) {
+function updateUsers(picture_url, userId) {
   var person = {
     firstName: $('#first-name').val(),
     lastName: $('#last-name').val(),
     email: $('#email').val(),
     schoolChoice: $('#school-choice').val(),
     majorChoice: $('#major-choice').val(),
-    pictureURL: picture_url
+    pictureURL: picture_url,
+    id: userId
   };
 
   //store new user object
@@ -279,10 +280,10 @@ $(function() {
       contentType: false,
       processData: false,
       success: function (data) {
-        if (data.substring(0,4) == "good") {
+        var status = JSON.parse(data);
+        if (status["state"] == "good") {
           //updateUserJSON
-          var start = data.indexOf(",") + 1;
-          updateUsers(data.substring(start));
+          updateUsers(status["profile_url"], status["id"]);
           //update infographics: call function from infographics.js
 
           //display thank you message

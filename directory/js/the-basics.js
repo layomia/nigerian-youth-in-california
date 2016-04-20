@@ -12,7 +12,7 @@ function getUsers() {
     var userName = jsonObject[i].firstName + " " + jsonObject[i].lastName;
     temp.push({
       name: userName,
-      link: "./directory/person/index.php?person=" + userName, //this should be the id.
+      link: "./directory/person/index.php?person=" + jsonObject[i].id, //this should be the id.
       //restructure JSON to include ID. Start from add-user.php
       school: jsonObject[i].schoolChoice
     });
@@ -43,7 +43,6 @@ function getSchools() {
 
 var tempUsers = getUsers();
 var tempSchools = getSchools();
-console.log(tempSchools);
 
 var users = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),

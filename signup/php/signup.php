@@ -7,6 +7,9 @@
   $imageError = "";
   $share = $_POST["share-permission"] ? true : false;
   $target_file = "";
+  $id;
+
+  $status = [];
 
   //upload and process image
   if ($_FILES["uploader"]["error"] == 0) {
@@ -86,6 +89,7 @@
                '".mysqli_real_escape_string($link, $share)."')";
 
       mysqli_query($link, $query);
+      $id = mysqli_insert_id($link);
 
       //$_SESSION['id'] = mysqli_insert_id($link);
 
@@ -93,8 +97,13 @@
     }
   }
 
-  if ($error . $imageError == "")
-    echo "good," . $target_file;
+  if ($error . $imageError == "") {
+    $status["state"] = "good";
+    $status["profile_url"] = $target_file;
+    $status["id"] = $id;
+  }
   else
-    echo $error . $imageError;
+    $status["state"] = $error . $imageError;
+
+  echo json_encode($status);
 ?>

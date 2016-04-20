@@ -1,9 +1,8 @@
 $(document).ready(function(){
   var img, content, backer, buttons, helper, close;
-  var imgID = "img", contentID = "content", backerID = "backer", buttonsID = "buttons", helperID = "helper", closeID = "close";
+  var imgID = "img", contentID = "content", backerID = "backer", buttonsID = "buttons", helperID = "helper", closeID = "close", nameHolderID = "name-holder";
 
   $(".close").click(function(){
-
     var profileID = $(this).parent().find("p").andSelf().filter("p:first").first().text();
 
     img = document.getElementById(imgID + profileID);
@@ -27,11 +26,15 @@ $(document).ready(function(){
       text.classList.remove("active");
     });
 
+    document.getElementById(nameHolderID + profileID).style.display = "block";
+
   });
 
   $(".overlay").click(function(){
 
     var profileID = $(this).parent().parent().find("p").andSelf().filter("p:first").first().text();
+
+    document.getElementById(nameHolderID + profileID).style.display = "none";
 
     img = document.getElementById(imgID + profileID);
     content = document.getElementById(contentID + profileID);

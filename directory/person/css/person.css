@@ -1,0 +1,40 @@
+* {
+  overflow: hidden;
+  box-sizing: border-box;
+}
+#page-content {
+  width: 100vw;
+  min-height: 100vh;
+  margin: auto;
+}
+
+#image {
+  width: 50vw;
+  min-height: 100vh;
+  float: left;
+  background-color: #32425A;
+}
+
+#bio {
+  min-height: 100vh;
+  margin-left: 50vw;
+	background-color: #EBEBEB;
+}
+
+#name-box {
+  text-align: center;
+  margin-top: 6em;
+  font-size: 15pt;
+}
+
+#user-name {
+  margin: 0 auto;
+}
+
+#bio-box {
+  width: 30vw;
+  margin: 0 auto;
+  margin-top: 2em;
+  font-size: 20pt;
+  color: #606060;
+}

@@ -59,8 +59,9 @@
           <div class='main'>
             <p style="display:none;">0</p>
             <div class='img inactive' id='img0'>
-              <div class='overlay'><p>Oluwalayomi Akinrinade</p></div>
+              <div class='overlay'><p></p></div>
             </div>
+            <div class="name-holder" id="name-holder0"><h2 id="name0">Oluwalayomi Akinrinade</h2></div>
             <div class='close' id='close0'>
               X
             </div>

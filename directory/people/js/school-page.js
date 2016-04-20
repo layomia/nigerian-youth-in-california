@@ -14,9 +14,13 @@ function constructPersonDiv(user, index){
 
   var userName = user.first_name + " " + user.last_name;
 
+  //<div id="name-holder"><h2 id="name">Oluwalayomi Akinrinade</h2></div>
+
   var divString = "<div class='background'><div class='main'><p style='display:none;'>" + index;
   divString += "</p><div class='img inactive' id='img" + index + "'><div class='overlay'><p>";
-  divString += userName + "</p></div></div><div class='close' id='close" + index + "'>X</div>";
+  divString += userName + "</p></div></div>";
+  divString += "<div class='name-holder' id='name-holder" + index + "'<h2 id='name" + index + "' style='font-size:18pt;'>" + userName + "</h2></div>";
+  divString += "<div class='close' id='close" + index + "'>X</div>";
   divString += "<div class='content' id='content" + index + "'><p class='d1'>" + userName +"</p>";
   divString += "<p class='d2'>" + user.school + "</p><p class='d3'><a href='../person/index.php?person=";
   divString += user.id + "' class='fancybox fancybox.iframe'>View Profile</a></p><div class='buttons' id='buttons";
@@ -41,7 +45,7 @@ function populatePeople(school, suggestion) {
   clearDiv('people-profiles');
 
   var img, content, backer, buttons, helper, close;
-  var imgID = "img", contentID = "content", backerID = "backer", buttonsID = "buttons", helperID = "helper", closeID = "close";
+  var imgID = "img", contentID = "content", backerID = "backer", buttonsID = "buttons", helperID = "helper", closeID = "close", nameHolderID = "name-holder";
 
   $.ajax({
     type: 'post',
@@ -91,11 +95,15 @@ function populatePeople(school, suggestion) {
               text.classList.remove("active");
             });
 
+            document.getElementById(nameHolderID + profileID).style.display = "block";
+
           });
 
           $(".overlay").click(function(){
 
             var profileID = $(this).parent().parent().find("p").andSelf().filter("p:first").first().text();
+
+            document.getElementById(nameHolderID + profileID).style.display = "none";
 
             img = document.getElementById(imgID + profileID);
             content = document.getElementById(contentID + profileID);

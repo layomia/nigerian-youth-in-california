@@ -72,6 +72,7 @@ div {
   margin: 50px auto;
   height: 350px;
   position: relative;
+  text-align: center;
   /*border: solid black 1px;*/
 }
 
@@ -194,4 +195,13 @@ div {
   letter-spacing: 0.4em;
   font-weight: 100;
   font-size: 1.2em;
+}
+
+.name-holder {
+  display:block;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+  color: #B2B2B2;
+  letter-spacing: 3px;
 }
