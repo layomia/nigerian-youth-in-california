@@ -16,7 +16,10 @@
 }
 
 #signup-form {
-  min-height: 100vh;
-  margin-left: 50vw;
-	background-color: #EBEBEB;
+  position: absolute;
+  background-color: #EBEBEB;
+}
+
+#align_text {
+  margin: auto;
 }
