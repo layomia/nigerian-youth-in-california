@@ -9,12 +9,7 @@ function clearDiv(divToClear) {
 }
 
 function constructPersonDiv(user, index){
-
-  console.log("constructing div");
-
   var userName = user.first_name + " " + user.last_name;
-
-  //<div id="name-holder"><h2 id="name">Oluwalayomi Akinrinade</h2></div>
 
   var divString = "<div class='background'><div class='main'><p style='display:none;'>" + index;
   divString += "</p><div class='img inactive' id='img" + index + "'><div class='overlay'><p>";
@@ -40,8 +35,6 @@ function populatePeople(school, suggestion) {
   if (suggestion == lastSuggestion)
     return;
 
-  console.log("school is " + school + ", suggestion is " + suggestion + ".");
-
   clearDiv('people-profiles');
 
   var img, content, backer, buttons, helper, close;
@@ -55,9 +48,9 @@ function populatePeople(school, suggestion) {
       if (data) {
         console.log(data);
         var users = JSON.parse(data);
+        console.log(users);
         var num = 0;
         $.each(users, function(index, value) {
-          console.log(value);
           var personDiv = constructPersonDiv(value, num);
           appendPersonDiv(personDiv);
 
