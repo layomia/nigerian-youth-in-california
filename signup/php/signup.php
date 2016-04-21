@@ -31,7 +31,7 @@
       $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["uploader"]["size"] > 500000) {
+    if ($_FILES["uploader"]["size"] > 7000000) {
       $imageError .= "Sorry, your file is too large.";
       $uploadOk = 0;
     }

@@ -94,7 +94,9 @@ jQuery.event.props.push('dataTransfer');
       //Deal with "first" file and ignore others
       var file = files[0];
 
-      if (file.type.match('image.*') && file.size <= 500000) {
+      console.log(file.size);
+
+      if (file.type.match('image.*') && file.size <= 7000000) {
         UserImage.handleImage(elt, file);
       } else {
         alert("This file is not an image or it is too large.");
