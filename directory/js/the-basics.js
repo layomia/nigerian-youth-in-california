@@ -67,7 +67,8 @@ $('#multiple-datasets .typeahead').typeahead({
     header: '<h3 class="league-name">People</h3>',
     suggestion: function (data) {
         return '<p><a href="' + data.link + '" class="fancybox fancybox.iframe"><strong>' + data.name + '</strong>, ' +  data.school  + '</a></p>';
-    }
+    },
+    empty: '<h3 class="league-name" style="text-align:left; margin-left: 20px;">No user matches</h3>'
   }
 },
 {
@@ -78,6 +79,35 @@ $('#multiple-datasets .typeahead').typeahead({
     header: '<h3 class="league-name">Schools</h3>',
     suggestion: function (data) {
         return '<p><a href="' + data.link + '"><strong>' + data.school + '</strong></a></p>';
-    }
+    },
+    empty: '<h3 class="league-name" style="text-align:left; margin-left: 20px;">No school matches</h3>'
   }
+});
+
+$(document).ready(function() {
+  $("a.overlay-flash").fancybox({
+    'padding': 0,
+    'zoomOpacity': true,
+    'zoomSpeedIn': 500,
+    'zoomSpeedOut': 500,
+    'overlayOpacity': 0.75,
+    'frameWidth': 530,
+    'frameHeight': 400,
+    'hideOnContentClick': false
+  });
+});
+
+function callFancyBox(my_href) {
+  var j1 = document.getElementById("hiddenclicker");
+  j1.href = my_href;
+  $('#hiddenclicker').trigger('click');
+}
+
+$(document).ready(function() {
+  $('#multiple-datasets .typeahead').on('typeahead:selected', function (e, datum) {
+    if (datum.hasOwnProperty("name"))
+      callFancyBox(datum.link);
+    else
+      window.location.href = datum.link;
+  });
 });
