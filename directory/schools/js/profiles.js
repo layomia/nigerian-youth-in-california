@@ -31,7 +31,6 @@ function filterSchools(suggestion) {
     data: {query: suggestion},
     success: function (data) {
       if (data) {
-        console.log("got results");
         var vals = data.split(",");
         var i = 1;
         $.each(vals, function(index, value) {
@@ -40,6 +39,7 @@ function filterSchools(suggestion) {
           var schoolDiv = constructSchoolDiv(value, end);
           appendSchoolDiv(schoolDiv);
 
+          //use getscript here? Look all the way down.
           //causes the hover to be triggered when the element is tapped on a touch device
           $('.hover').hover(function(){
             $(this).addClass('flip');

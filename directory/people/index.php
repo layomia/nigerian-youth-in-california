@@ -10,25 +10,23 @@
 
     <title>Nigerian Youth in California</title>
 
-    <link rel="stylesheet" href="./css/profile.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initital-scale=1" />
 
+    <link rel="stylesheet" href="./css/profile.css">
     <link rel="stylesheet" href="../css/search-style.css">
 
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../general.css">
     <link rel="stylesheet" href="../../Fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 
-
-    <meta charset="utf-8" />
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initital-scale=1" />
-
 		<!--<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>-->
     <script type="text/javascript" src="../../jquery.js"></script>
     <script type="text/javascript" src="../../Fancybox/jquery.fancybox.js?v=2.1.5"></script>
-    <script type="text/javascript" src="../../js/fancyscript.js"></script>
     <script type="text/javascript" src="./js/school-page.js"></script>
     <script type="text/javascript" src="./js/people.js"></script>
+    <script type="text/javascript" src="../../js/fancyscript.js"></script>
 
   </head>
 

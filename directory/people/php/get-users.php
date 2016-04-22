@@ -11,20 +11,20 @@
       $query = "SELECT first_name, last_name, id, picture_url, school FROM USERS WHERE
       school='".mysqli_real_escape_string($link, $_POST['school'])."'
       AND CONCAT (first_name, ' ', last_name) LIKE '%{$suggestion}%'
-      ORDER BY CONCAT (first_name, ' ', last_name) ASC";
+      ORDER BY CONCAT (first_name, ' ', last_name)";
     } else {
       $query = "SELECT first_name, last_name, id, picture_url, school FROM USERS WHERE
       school='".mysqli_real_escape_string($link, $_POST['school'])."'
-      ORDER BY CONCAT (first_name, ' ', last_name) ASC";
+      ORDER BY CONCAT (first_name, ' ', last_name)";
     }
   } else {
     if ($_POST['suggestion'] != '') {
       $query = "SELECT first_name, last_name, id, picture_url, school FROM USERS WHERE
       CONCAT (first_name, ' ', last_name) LIKE '%{$suggestion}%'
-      ORDER BY CONCAT (first_name, ' ', last_name) ASC";
+      ORDER BY CONCAT (first_name, ' ', last_name)";
     } else {
       $query = "SELECT first_name, last_name, id, picture_url, school FROM USERS
-      ORDER BY CONCAT (first_name, ' ', last_name) ASC";
+      ORDER BY CONCAT (first_name, ' ', last_name)";
     }
   }
 
@@ -33,7 +33,7 @@
 
   if ($results) {
     while($row = $result->fetch_assoc()) {
-      $schools[$row['id']] = $row;
+      array_push($schools, $row);
     }
   }
 

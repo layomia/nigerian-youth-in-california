@@ -50,10 +50,6 @@ $(document).ready(function(){
     buttons.classList.add("active");
     close.classList.add("active");
 
-    document.getElementById(imgID + profileID).style.background = 'url("http://static1.squarespace.com/static/553bb312e4b0462c778d0361/t/55774b54e4b0a0c4c9e441ac/1433881432894/CLothing.png?format=750w") 55% center';
-    document.getElementById(imgID + profileID).style.backgroundSize = 'cover';
-    document.getElementById(imgID + profileID).style.backgroundRepeat = 'no-repeat';
-
     //this.parentElement.
     var texts = this.parentElement.parentElement.querySelectorAll(".content p");
 

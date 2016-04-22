@@ -36,9 +36,7 @@ function populatePeople(school, suggestion) {
     return;
 
   clearDiv('people-profiles');
-
-  var img, content, backer, buttons, helper, close;
-  var imgID = "img", contentID = "content", backerID = "backer", buttonsID = "buttons", helperID = "helper", closeID = "close", nameHolderID = "name-holder";
+  var imgID = "img";
 
   $.ajax({
     type: 'post',
@@ -48,14 +46,15 @@ function populatePeople(school, suggestion) {
       if (data) {
         console.log(data);
         var users = JSON.parse(data);
-        console.log(users);
         var num = 0;
-        $.each(users, function(index, value) {
-          var personDiv = constructPersonDiv(value, num);
+        console.log(users.length);
+        for (var i in users) {
+          //console.log(users[i]);
+          var personDiv = constructPersonDiv(users[i], num);
           appendPersonDiv(personDiv);
 
           //discard ugly default images?
-          var image_url = "../../signup/" + value.picture_url.substr(3);
+          var image_url = "../../signup/" + users[i].picture_url.substr(3);
 
           document.getElementById(imgID + num).style.background = 'url("' + image_url + '") 55% center';
           document.getElementById(imgID + num).style.backgroundSize = 'cover';
@@ -63,65 +62,8 @@ function populatePeople(school, suggestion) {
 
           num++;
 
-          $(".close").click(function() {
-
-            var profileID = $(this).parent().find("p").andSelf().filter("p:first").first().text();
-
-            img = document.getElementById(imgID + profileID);
-            content = document.getElementById(contentID + profileID);
-            backer = document.getElementById(backerID + profileID);
-            buttons = document.getElementById(buttonsID + profileID);
-            helper = document.getElementById(helperID + profileID);
-            close = document.getElementById(closeID + profileID);
-
-
-            img.classList.remove("active");
-            img.classList.add("inactive");
-            content.classList.remove("active");
-            backer.classList.remove("active");
-            buttons.classList.remove("active");
-            close.classList.remove("active");
-
-            var texts = this.parentElement.querySelectorAll(".content p");
-
-            [].forEach.call(texts, function(text) {
-              text.classList.remove("active");
-            });
-
-            document.getElementById(nameHolderID + profileID).style.display = "block";
-
-          });
-
-          $(".overlay").click(function(){
-
-            var profileID = $(this).parent().parent().find("p").andSelf().filter("p:first").first().text();
-
-            document.getElementById(nameHolderID + profileID).style.display = "none";
-
-            img = document.getElementById(imgID + profileID);
-            content = document.getElementById(contentID + profileID);
-            backer = document.getElementById(backerID + profileID);
-            buttons = document.getElementById(buttonsID + profileID);
-            helper = document.getElementById(helperID + profileID);
-            close = document.getElementById(closeID + profileID);
-
-            img.classList.add("active");
-            img.classList.remove("inactive");
-            content.classList.add("active");
-            backer.classList.add("active");
-            buttons.classList.add("active");
-            close.classList.add("active");
-
-            //this.parentElement.
-            var texts = this.parentElement.parentElement.querySelectorAll(".content p");
-
-            [].forEach.call(texts, function(text) {
-              text.classList.add("active");
-            });
-
-          });
-
-        });
+          $.getScript( "./js/people.js", function( data, textStatus, jqxhr ) {});
+        };
       }
     },
     error: function (jXHR, textStatus, errorThrown) {
