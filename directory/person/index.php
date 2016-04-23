@@ -10,7 +10,7 @@
 
   </head>
   <body>
-    
+
     <div id="image">
     </div>
 
@@ -24,6 +24,13 @@
 
       <div id="bio-box">
         <p id="user-bio"></p>
+      </div>
+
+      <div id="stats-box">
+        <p id="school">School: </p>
+        <p id="major">Major: </p>
+        <p id="email">Email: </p>
+        <p id="tribe">Tribe: </p>
       </div>
 
     </div>

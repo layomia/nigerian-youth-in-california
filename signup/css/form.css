@@ -4,7 +4,7 @@
 }
 #wrapper{
     margin-top: 2.2em;
-    margin-left: 1em;
+    margin-left: 0;
     /*-moz-box-shadow:0px 0px 3px #aaa;
     -webkit-box-shadow:0px 0px 3px #aaa;
     box-shadow:0px 0px 3px #aaa;*/
@@ -36,14 +36,14 @@
 #navigation ul{
   list-style:none;
 	float:left;
-	margin-left:6em;
+	/*margin-left:6em;*/
 }
 #navigation ul li{
 	float:left;
   /*border-right:1px solid #ccc;
   border-left:1px solid #ccc;*/
   position:relative;
-	margin:0 1.875em;
+	margin: 0 1.6em;
 }
 #navigation ul li a{
     display:block;
@@ -112,7 +112,7 @@ span.error{
     /*border:1px solid #fff;*/
     /*min-width:500px;*/
     padding:10px;
-    margin-left:100px;
+    /*margin-left:100px;*/
     /*-moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -121,7 +121,7 @@ span.error{
     box-shadow:0px 0px 3px #aaa;*/
 }
 #steps form label{
-    width:160px;
+    width:120px;
     float:left;
     /*text-align:right;*/
     margin-right:15px;

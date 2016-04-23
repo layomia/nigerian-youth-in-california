@@ -23,10 +23,8 @@
 
   <body>
 
-      <!-- <div id="infographics">
-      </div>
-      -->
-   
+      <!--<div id="infographics">
+      </div>-->
 
       <div id="signup-form">
 
@@ -35,9 +33,7 @@
         		<form id="formElem" name="formElem" method="post" enctype="multipart/form-data">
         			<fieldset class="step">
                 <div class="container">
-
-                  <div class="image-uploader" data-base-height="250" data-base-width="250">
-
+                  <div class="image-uploader" data-base-height="180" data-base-width="180">
                     <div class="image">
                       <label style="margin-left:1.5em; margin-top:4.7em;">Click or drag a file to upload an image</label>
                       <img/>
@@ -49,8 +45,8 @@
                       <div class="close"></div>
                     </div>
                   </div>
+
                 </div>
-                 <div id = "align_text"> <p> You can upload just one photo, so make it a good one! </p> </div>
                 <p>
         					<label for="first-name">First Name *</label>
         					<input id="first-name" name="first-name"/>
@@ -63,7 +59,7 @@
         					<label for="email">Email *</label>
         					<input id="email" name="email" type="email" />
         				</p>
-        				<!--<p>
+        				<p>
         					<label for="date-of-birth">Date of Birth *</label>
         					<input id="date-of-birth" name="date-of-birth" type="date" placeholder="mm/dd/yyyy"/>
         				</p>
@@ -74,7 +70,7 @@
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>
-                </p>-->
+                </p>
         			</fieldset>
 
         			<fieldset class="step">
@@ -136,23 +132,23 @@
 
               <fieldset class="step" id="confirmation-slide">
 
-  							<!--<p style="margin-top: 8em;">
-                  Please indicate below whether we can share your information with
-                  others in our community. This will allow other members to find
-                  you in our directory.
-                </p> -->
+  							<p style="margin-top: 12em; width: 90vw; padding: 20px 10px; margin-left: 20px">
+                  By completing this form and hitting submit, you are expressing
+                  consent to have your information shared with others in our community.
+                </p>
 
-                <p>
-                  By clicking Submit, I allow the Nigerian Youth in
+                <p style="display:none;">
+                  <input type="checkbox" name="share-permission" id="share-permission" style="width: 1em; height = 1em;"/>
+                  I allow the Nigerian Youth in
                   California to share my information with other members.
                 </p>
 
-                <p id="form-error">
-                  Your form is not complete. Please review for errors.
+                <p id="form-error" style="width: 90vw; padding: 20px 10px; margin-left: 20px">
+                  Your form is not complete. Please review errors.
                 </p>
 
                 <p class="submit">
-                  <button id="registerButton" type="submit"> <a href = "http://176.32.230.48/nigerianyouthincali.com/"> Submit </a> </button>
+                  <button id="registerButton" name="submit" type="submit">Submit</button>
                 </p>
 
               </fieldset>

@@ -8,18 +8,16 @@
   margin: auto;
 }
 
-#infographics {
+/*#infographics {
   width: 50vw;
   min-height: 100vh;
   float: left;
   background-color: #32425A;
-}
+}*/
 
 #signup-form {
   position: absolute;
+  min-height: 100vh;
+  width: 100vw;
   background-color: #EBEBEB;
-}
-
-#align_text {
-  margin: auto;
 }

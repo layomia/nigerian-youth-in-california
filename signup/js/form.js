@@ -4,11 +4,12 @@ function validateEmail(email) {
 }
 
 function validateDate(testdate) {
-  if (!!window.chrome && !!window.chrome.webstore && testdate != '')
+  /*if (!!window.chrome && !!window.chrome.webstore && testdate != '')
     return true;
 
   var re = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/ ;
-  return re.test(testdate);
+  return re.test(testdate);*/
+  return true;
 }
 
 function validateName(name){
@@ -287,10 +288,15 @@ $(function() {
           //update infographics: call function from infographics.js
 
           //display thank you message
-
+          document.getElementById("registerButton").innerHTML = "Thank you!";
           //rearrange screen to show infographics
           /*$('#signup-form').hide();
           document.getElementById('infographics').style.width = "100vw";*/
+
+          //renavigate to home page-content
+          setTimeout(function() {
+            window.location.href = "../#directory";
+          }, 1200);
         } else {
           //To Do: Go into more detail about problem. Highlight error spots.
           console.log("Error with submit. Got data from processing script.");

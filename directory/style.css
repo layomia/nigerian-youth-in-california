@@ -27,7 +27,7 @@
 		min-height: 100vh;
 		background-color: #EBEBEB;
 		color: #000000;
-		/*overflow: hidden;*/
+		overflow: hidden;
 	}
 		#directory #splash {
 			right: -20px;
