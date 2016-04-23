@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./css/profile.css">
     <link rel="stylesheet" href="../css/search-style.css">
 
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../../general.css">
     <link rel="stylesheet" href="../../Fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 

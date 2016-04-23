@@ -13,17 +13,19 @@
   min-height: 100vh;
   float: left;
   background-color: #32425A;
+  display: none;
 }
 
 #bio {
   min-height: 100vh;
-  margin-left: 50vw;
+  /*margin-left: 50vw;*/
+  margin-left: 10px;
 	background-color: #EBEBEB;
 }
 
 #name-box {
   text-align: center;
-  margin-top: 6em;
+  margin-top: 4em;
   font-size: 15pt;
 }
 
@@ -32,9 +34,19 @@
 }
 
 #bio-box {
-  width: 30vw;
+  /*width: 30vw;*/
+  width: 80%;
   margin: 0 auto;
   margin-top: 2em;
+  font-size: 20pt;
+  color: #606060;
+}
+
+#stats-box {
+  /*width: 30vw;*/
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1em;
   font-size: 20pt;
   color: #606060;
 }

@@ -23,8 +23,8 @@
 
   <body>
 
-      <div id="infographics">
-      </div>
+      <!--<div id="infographics">
+      </div>-->
 
       <div id="signup-form">
 
@@ -132,24 +132,23 @@
 
               <fieldset class="step" id="confirmation-slide">
 
-  							<p style="margin-top: 8em;">
-                  Please indicate below whether we can share your information with
-                  others in our community. This will allow other members to find
-                  you in our directory.
+  							<p style="margin-top: 12em; width: 90vw; padding: 20px 10px; margin-left: 20px">
+                  By completing this form and hitting submit, you are expressing
+                  consent to have your information shared with others in our community.
                 </p>
 
-                <p>
+                <p style="display:none;">
                   <input type="checkbox" name="share-permission" id="share-permission" style="width: 1em; height = 1em;"/>
                   I allow the Nigerian Youth in
                   California to share my information with other members.
                 </p>
 
-                <p id="form-error">
-                  Your form is not complete. Please review for errors.
+                <p id="form-error" style="width: 90vw; padding: 20px 10px; margin-left: 20px">
+                  Your form is not complete. Please review errors.
                 </p>
 
                 <p class="submit">
-                  <button id="registerButton" type="submit">Submit</button>
+                  <button id="registerButton" name="submit" type="submit">Submit</button>
                 </p>
 
               </fieldset>

@@ -10,12 +10,12 @@ function clearDiv(divToClear) {
 //to-do remove maleCount and femaleCount info, add id to each div to make clickable
 function constructSchoolDiv(school, end){
   var divClass = "col_third" + ( (end) ? " end" : "" );
-  var divString = '<div class="' + divClass +'">'
+  var divString = '<div style="display:inline-block;"><div class="' + divClass +'">'
   divString += '<div class="hover pane"><p>'
   divString += school + '</p><div class="front"><div class="box1"></div></div>'
   divString += '<div class="back"><a href="../people/index.php?school=' + school + '">';
   divString += '<div class="box2">';
-  divString += '</div></a></div></div></div>';
+  divString += '</div></a></div></div></div></div>';
   return divString;
 }
 
@@ -81,7 +81,8 @@ function validKey(key) {
 //user is "finished typing," do something
 function doneTyping () {
   var query = document.getElementById("search-bar").value;
-  if (validQuery(query) && validKey(key)) {
+  //if (validQuery(query) && validKey(key)) {
+  if (validKey(key)) {
     if (query == "") {
       populateSchools("");
     } else {

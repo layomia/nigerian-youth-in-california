@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/search-style.css">
     <link rel="stylesheet" href="./css/profiles.css">
 
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../../general.css">
     <link rel="stylesheet" href="../../Fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 
@@ -44,7 +44,7 @@
 
 
     <div class="contain">
-      <div class="wrapper" id="school-profiles">
+      <div class="wrapper" id="school-profiles" style="margin-left:35px">
       </div>
     </div>
 

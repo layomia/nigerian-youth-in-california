@@ -81,13 +81,14 @@ function validQuery(query) {
 }
 
 function validKey(key) {
-  return ((key >= 65 && key <= 90) || (key == 8)) || (key == 16) || (key == 32);
+  return ((key >= 65 && key <= 90) || (key == 8)) || (key == 16) || (key == 32) || (key == 173) || (key == 189);
 }
 
 //user is "finished typing," do something
 function doneTyping () {
   var query = document.getElementById("search-bar").value;
-  if (validQuery(query) && validKey(key)) {
+  //if (validQuery(query) && validKey(key)) {
+  if (validKey(key)) {
     if (query == "") {
       populatePeople(school, "");
     } else {
